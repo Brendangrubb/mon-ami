@@ -1,13 +1,21 @@
 <h1>Mon Ami</h1>
 <p>Welcome to Mon Ami. Make an account or sign in to begin connecting you and your children to eager friends and play-mates from your area</p>
 
+<!-- this select allows users to filter by interest -->
+<h4>Filter by interest</h4>
+<select (change)="onChange($event.target.value)" class="form-group">
+  <option value="allInterests" selected="selected">All Projects</option>
+  <option value="music">music</option>
+  <option value="horses">horses</option>
+</select>
+<br>
 
 
 <!-- <img src="https://i.redditmedia.com/bNm8hURg6vzrI8IK20wxNUAHo_uGrmEYy5-R4sBA_Ms.jpg?w=960&s=080ba633ab71941415476b1e82164abf"> -->
 <app-new-user [newUser]="newUser"(newUserSender)="saveNewUser($event)"></app-new-user>
 <button (click)="addNewUser()">Sign up</button>
 <h1>Local Users</h1>
-<div class="well" *ngFor="let user of users">
+<div class="well" *ngFor="let user of users | interests: filterByInterest">
   <h3 (click)="goToProfile(user)">{{user.username}}</h3>
   <p>{{user.age}}/{{user.gender}}/{{user.location}}</p>
   <ul>
