@@ -1,4 +1,6 @@
-  <div class="auth-form">
+<div class="well login">
+  <div *ngIf=" newUser === false" class="auth-form">
+    <h5>Login with an existing account:</h5>
     <div class="form-group">
       <label for="email">Email</label>
       <input #email type="email" required>
@@ -7,23 +9,24 @@
       <label for="password">Password</label>
       <input #password type="password" required>
     </div>
-  <button class="btn" (click)="loginWithEmail(email.value, password.value)">Submit</button>
-</div>
-<br>
-<h2>Or Register a new account</h2>
-<br>
-<br>
-<app-new-user [newUser]="newUser" (newUserSender)="signupWithEmail($event)"></app-new-user>
-<div *ngIf="newUser === true">
-  <div class="container">
-    <div>
-      <h1>Sign up</h1>
-      <label>email:</label>
-      <input #newEmail value="">
-      <label>password:</label>
-      <input #newPassword value="">
-      <button class="btn" (click)="signupWithEmail(newEmail.value, newPassword.value)">Signup with email</button>
+    <button class="btn" (click)="loginWithEmail(email.value, password.value)">Submit</button>
+  </div>
+<!-- Sign up form below -->
+  <div *ngIf="newUser === true">
+    <div class="container">
+      <div>
+        <h1>Sign up</h1>
+        <label>email:</label>
+        <input #newEmail value="">
+        <label>password:</label>
+        <input #newPassword value="">
+        <button class="btn" (click)="signupWithEmail(newEmail.value, newPassword.value)">Submit</button>
+        <button class="btn btn-danger" (click)="toggleSignUpForm()">Cancel</button>
+      </div>
     </div>
   </div>
+  <hr>
+  <h5 *ngIf="newUser === false"> If you're new to Mon-Ami click the sign up button!</h5>
+  <br>
+  <button *ngIf="newUser === false" class="btn" (click)="addNewUser()">Sign up</button>
 </div>
-<button *ngIf="newUser === false" class="btn" (click)="addNewUser()">Sign up</button>

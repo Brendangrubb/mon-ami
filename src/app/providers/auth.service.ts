@@ -15,7 +15,6 @@ export class AuthService {
     this.af.auth.subscribe(user => {
       if(user) {
         this.user = user;
-        console.log(this.user.uid);
       } else {
         this.user= {};
       }
@@ -27,8 +26,6 @@ export class AuthService {
   }
 
   login(email, password){
-    // console.log(email);
-    // console.log(password);
     return this.af.auth.login({
       email: email,
       password: password,

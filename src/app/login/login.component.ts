@@ -12,7 +12,6 @@ import {AngularFire, FirebaseListObservable } from 'angularfire2';
   providers: [AuthService, UsersService]
 })
 export class LoginComponent implements OnInit {
-  // users: FirebaseListObservable<any[]>;
   public error: any;
   newUser: boolean = false;
   users;
@@ -36,22 +35,26 @@ saveNewUser(user){
   this.usersService.saveUser(user);
 }
 
+toggleSignUpForm(){
+  this.newUser = false;
+}
+
 // This is for auth
   loginWithEmail(email: string, password: string){
     this.authService.login(email, password).then(() => {
-      // this.authService.getUid();
-      this.router.navigate(['']);
+      this.router.navigate(['profile/:id']);
     })
       .catch((error: any) => {
         if (error) {
           this.error = error;
           console.log(this.error);
+          alert("Sorry this email or password is incorrect, please try again");
         }
       });
   }
 
+
   signupWithEmail(email: string, password: string, makeAccount) {
-    // console.log(makeAccount);
     this.authService.signupWithEmail(email, password).then( () => {
         var newAccount = {
         username: makeAccount.username,
