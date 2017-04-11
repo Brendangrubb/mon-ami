@@ -1,19 +1,23 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../users.service';
+import { AngularFire } from 'angularfire2';
 
 @Component({
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',
-  styleUrls: ['./new-user.component.css']
+  styleUrls: ['./new-user.component.css'],
+  providers: [UsersService]
 })
+
 export class NewUserComponent implements OnInit {
   autoGetLocation:boolean = true;
   location;
   sentLocation;
   locationButton:string= "btn btn-md active btn-primary";
-  @Input() newUser:boolean;
-  @Output() newUserSender = new EventEmitter();
-  constructor() { }
-  
+  username: string;
+
+  constructor(private usersService: UsersService, private af: AngularFire) { }
+
   setPosition(position){
     this.sentLocation = [position.coords.latitude, position.coords.longitude]
   }
@@ -35,7 +39,7 @@ export class NewUserComponent implements OnInit {
     }
   }
 
-  saveUser(Username, Age, Gender, Status){
+  saveUser(newUsername, newAge, newGender, newStatus){
 
     if(this.autoGetLocation){
 
@@ -43,13 +47,13 @@ export class NewUserComponent implements OnInit {
       this.sentLocation = this.location;
     }
     var newAccount = {
-      username: Username.value,
       location: this.sentLocation,
-      gender: Gender.value,
-      age: parseInt(Age.value),
-      status: Status.value,
+      gender: newGender.value,
+      username: newUsername.value,
+      age: parseInt(newAge.value),
+      status: newStatus.value,
     };
-    this.newUserSender.emit(newAccount);
+    this.usersService.saveUser(newAccount);
   }
 
 }
