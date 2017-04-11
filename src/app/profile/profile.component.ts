@@ -23,20 +23,6 @@ export class ProfileComponent implements OnInit {
   constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService) { }
 
   ngOnInit() {
-//     this.route.params.forEach((urlParameters) => {
-//       this.userKey = urlParameters['id'];
-//     });
-//     this.UsersService.getUserById(this.userKey).subscribe(snap => {
-//       this.profileUser = snap;
-//     });
-    this.UsersService.getUsers().subscribe(users=>{
-      this.matches = matches;
-    });
-  }
-
-  onChange(optionFromMenu: string) {
-  this.filterByInterest = optionFromMenu;
-}
     this.af.auth.subscribe(user => {
       if(user) {
         this.user = user;
@@ -45,9 +31,28 @@ export class ProfileComponent implements OnInit {
         this.user= {};
       }
     });
+    // console.log(this.user.uid);
     this.usersService.getProfile(this.user.uid).subscribe( snap => {
       this.profile = snap;
-      console.log(this.profile);
-    })
+    });
+    // this.usersService.getUsers().subscribe(matches=>{
+    //   this.matches = matches;
+    // });
   }
-}
+  // onChange(optionFromMenu: string) {
+  //   this.filterByInterest = optionFromMenu;
+  // }
+
+  }
+
+
+
+
+
+
+  //     this.route.params.forEach((urlParameters) => {
+  //       this.userKey = urlParameters['id'];
+  //     });
+  //     this.UsersService.getUserById(this.userKey).subscribe(snap => {
+  //       this.profileUser = snap;
+  //     });
