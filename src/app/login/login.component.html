@@ -9,3 +9,21 @@
     </div>
   <button class="btn" (click)="loginWithEmail(email.value, password.value)">Submit</button>
 </div>
+<br>
+<h2>Or Register a new account</h2>
+<br>
+<br>
+<app-new-user [newUser]="newUser" (newUserSender)="signupWithEmail($event)"></app-new-user>
+<div *ngIf="newUser === true">
+  <div class="container">
+    <div>
+      <h1>Sign up</h1>
+      <label>email:</label>
+      <input #newEmail value="">
+      <label>password:</label>
+      <input #newPassword value="">
+      <button class="btn" (click)="signupWithEmail(newEmail.value, newPassword.value)">Signup with email</button>
+    </div>
+  </div>
+</div>
+<button *ngIf="newUser === false" class="btn" (click)="addNewUser()">Sign up</button>

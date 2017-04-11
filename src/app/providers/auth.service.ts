@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable } from 'angularfire2';
+import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  FirebaseObjectObservable } from 'angularfire2';
+import {FirebaseObjectFactoryOpts} from "angularfire2/interfaces";
 
 @Injectable()
 export class AuthService {
-  public users: FirebaseListObservable<any>;
-  // public user: FirebaseListObservable<any>;
   public displayName: string;
   public email: string;
+  public uid: string;
+  public user;
+
 
 
   constructor(public af: AngularFire) {
-    this.af.auth.subscribe((auth) => {
-      // console.log(this.user);
-      if(auth != null) {
-        // this.user = this.af.database.object('users/');
+    this.af.auth.subscribe(user => {
+      if(user) {
+        this.user = user;
+        console.log(this.user.uid);
+      } else {
+        this.user= {};
       }
     });
   }
@@ -23,8 +27,8 @@ export class AuthService {
   }
 
   login(email, password){
-    console.log(email);
-    console.log(password);
+    // console.log(email);
+    // console.log(password);
     return this.af.auth.login({
       email: email,
       password: password,
@@ -34,4 +38,10 @@ export class AuthService {
     });
   }
 
+  signupWithEmail(email: string, password: string) {
+  return this.af.auth.createUser({
+    email: email,
+    password: password
+  })
+}
 }

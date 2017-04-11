@@ -13,9 +13,11 @@ export class NewUserComponent implements OnInit {
   @Input() newUser:boolean;
   @Output() newUserSender = new EventEmitter();
   constructor() { }
+  
   setPosition(position){
     this.sentLocation = [position.coords.latitude, position.coords.longitude]
   }
+
   ngOnInit() {
     if(navigator.geolocation){
       navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));
@@ -32,24 +34,22 @@ export class NewUserComponent implements OnInit {
       this.autoGetLocation = true;
     }
   }
-  saveUser(Username, Password, Email, Age, Gender, Status){
 
-    // console.log(Username.value);
+  saveUser(Username, Age, Gender, Status){
+
     if(this.autoGetLocation){
 
     } else {
       this.sentLocation = this.location;
     }
-    var newUser = {
+    var newAccount = {
       username: Username.value,
-      password: Password.value,
       location: this.sentLocation,
-      email: Email.value,
       gender: Gender.value,
       age: parseInt(Age.value),
-      status: Status.value
+      status: Status.value,
     };
-    this.newUserSender.emit(newUser);
+    this.newUserSender.emit(newAccount);
   }
 
 }
