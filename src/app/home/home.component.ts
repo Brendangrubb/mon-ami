@@ -12,7 +12,10 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   users;//: any[];
-  // newUser:boolean = false;
+
+  newUser:boolean = false;
+  filterByInterest: string = "allInterests";
+
   constructor(private UsersService: UsersService, private router: Router) { }
 
   ngOnInit() {
@@ -20,17 +23,13 @@ export class HomeComponent implements OnInit {
       this.users = snap;
     });
   }
-  // addNewUser(){
-  //   this.newUser = true;
-  // }
-  // saveNewUser(user){
-  //   this.newUser = false;
-  //
-  //   this.UsersService.saveUser(user);
-  // }
 
   goToProfile(user) {
     this.router.navigate(['profile', user.$key]);
   }
+
+  onChange(optionFromMenu: string) {
+  this.filterByInterest = optionFromMenu;
+}
 
 }

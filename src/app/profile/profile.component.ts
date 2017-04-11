@@ -14,12 +14,29 @@ import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  Fireb
 })
 export class ProfileComponent implements OnInit {
   userKey: string = " ";
+//   profileUser;
+  matches;
+  filterByInterest: string = "allInterests";
   user;
   profile;
 
   constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService) { }
 
   ngOnInit() {
+//     this.route.params.forEach((urlParameters) => {
+//       this.userKey = urlParameters['id'];
+//     });
+//     this.UsersService.getUserById(this.userKey).subscribe(snap => {
+//       this.profileUser = snap;
+//     });
+    this.UsersService.getUsers().subscribe(users=>{
+      this.matches = matches;
+    });
+  }
+
+  onChange(optionFromMenu: string) {
+  this.filterByInterest = optionFromMenu;
+}
     this.af.auth.subscribe(user => {
       if(user) {
         this.user = user;
@@ -33,6 +50,4 @@ export class ProfileComponent implements OnInit {
       console.log(this.profile);
     })
   }
-
-
 }

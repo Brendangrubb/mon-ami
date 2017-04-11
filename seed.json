@@ -6,33 +6,32 @@
     "age": 32,
     "gender": "f",
     "status": "married",
+    "location": "PDX",
+    "likes": ["music", "gators"],
+    "matches": ["2"],
+    "notMatch": [],
     "children": [{
       "age": 9,
       "gender": "f"
     }, {
       "age": 4,
       "gender": "m"
-    }
-    ],
-    "location": "PDX",
-    "likes": [],
-    "matches": [],
-    "notMatch": []
-    },
+    }]
+  },
     {
       "uid": "",
       "username":"XxBest_daDxX",
       "age": 43,
       "gender": "m",
       "status": "single",
+      "location": "PDX",
+      "likes": ["horses", "peanuts"],
+      "matches": ["2"],
+      "notMatch": [],
       "children": [{
         "age": 9,
         "gender":"f"
-      }],
-      "location": "PDX",
-      "likes": [],
-      "matches": [],
-      "notMatch": []
+      }]
     },
     {
       "uid": "",
@@ -40,6 +39,10 @@
       "age": 35,
       "gender": "f",
       "status": "single",
+      "location": "PDX",
+      "likes": ["music", "horses"],
+      "matches": ["0", "1"],
+      "notMatch": [],
       "children": [{
         "age": 9,
         "gender":"m"
@@ -49,17 +52,17 @@
       },{
         "age": 3,
         "gender":"f"
-      }],
-      "location": "PDX",
-      "likes": [],
-      "matches": [],
-      "notMatch": []
+      }]
     }, {
       "uid": "",
       "username":"iWishThisWasTinder",
       "age": 25,
       "gender": "f",
       "status": "single",
+      "location": "PDX",
+      "likes": ["nothing"],
+      "matches": [],
+      "notMatch": [],
       "children": [{
         "age": 9,
         "gender":"m"
@@ -69,11 +72,7 @@
       },{
         "age": 2,
         "gender":"m"
-      }],
-      "location": "PDX",
-      "likes": [],
-      "matches": [],
-      "notMatch": []
+      }]
     }
   ]
 }
