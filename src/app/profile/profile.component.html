@@ -12,7 +12,7 @@
 
 <h4>Your matches: </h4>
 
-  <div *ngFor="let match of matches | interests: profile">
+  <div *ngFor="let match of matches">
     <h4>username: {{match.username}}</h4>
     <h4>user id: {{match.$key}}</h4>
     <div class="well">
