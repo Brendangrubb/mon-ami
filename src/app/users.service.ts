@@ -21,4 +21,7 @@ export class UsersService {
   getUserById(key: string) {
     return this.angularFire.database.object('users/' + key);
   }
+  // saveMatches(horses) {
+  //   this.users.matches.push(horses);
+  // }
 }

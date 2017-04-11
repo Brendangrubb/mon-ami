@@ -9,7 +9,7 @@
     "status": "married",
     "location": "PDX",
     "likes": ["music", "gators"],
-    "matches": [],
+    "matches": ["2"],
     "notMatch": [],
     "children": [{
       "age": 9,
@@ -28,7 +28,7 @@
       "status": "single",
       "location": "PDX",
       "likes": ["horses", "peanuts"],
-      "matches": [],
+      "matches": ["2"],
       "notMatch": [],
       "children": [{
         "age": 9,
@@ -44,7 +44,7 @@
       "status": "single",
       "location": "PDX",
       "likes": ["music", "horses"],
-      "matches": [],
+      "matches": ["0", "1"],
       "notMatch": [],
       "children": [{
         "age": 9,

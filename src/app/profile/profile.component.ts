@@ -11,7 +11,9 @@ import { UsersService } from '../users.service';
 })
 export class ProfileComponent implements OnInit {
   userKey: string = " ";
-  user;
+  profileUser;
+  users;
+  filterByInterest: string = "allInterests";
 
   constructor(private route: ActivatedRoute, private location: Location, private UsersService: UsersService) { }
 
@@ -20,8 +22,16 @@ export class ProfileComponent implements OnInit {
       this.userKey = urlParameters['id'];
     });
     this.UsersService.getUserById(this.userKey).subscribe(snap => {
-      this.user = snap;
+      this.profileUser = snap;
     });
+    this.UsersService.getUsers().subscribe(users=>{
+      this.users = users;
+    });
+
   }
+
+  onChange(optionFromMenu: string) {
+  this.filterByInterest = optionFromMenu;
+}
 
 }
