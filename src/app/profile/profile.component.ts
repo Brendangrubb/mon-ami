@@ -14,34 +14,25 @@ import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  Fireb
 })
 export class ProfileComponent implements OnInit {
   userKey: string = " ";
-//   profileUser;
-  matches;
-  filterByInterest: string = "allInterests";
-  user;
+  userId;
   profile;
 
   constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.af.auth.subscribe(user => {
-      if(user) {
-        this.user = user;
-        console.log(this.user.uid);
+    this.af.auth.subscribe(userId => {
+      if(userId) {
+        this.userId = userId;
+        console.log(this.userId.uid);
       } else {
-        this.user= {};
+        this.userId = {};
       }
     });
     // console.log(this.user.uid);
-    this.usersService.getProfile(this.user.uid).subscribe( snap => {
+    this.usersService.getProfile(this.userId.uid).subscribe( snap => {
       this.profile = snap;
     });
-    // this.usersService.getUsers().subscribe(matches=>{
-    //   this.matches = matches;
-    // });
   }
-  // onChange(optionFromMenu: string) {
-  //   this.filterByInterest = optionFromMenu;
-  // }
 
   }
 
