@@ -1,7 +1,13 @@
-<div class="well">
-  <h3>{{user.username}}</h3>
-  <p>{{user.age}}/{{user.gender}}/{{user.location}}</p>
-  <ul>
-    <!-- <li *ngFor="let child of user.children">{{child.age}}/{{child.gender}}</li> -->
-  </ul>
+
+<div *ngFor="let user of profile">
+      <h2>{{user.username}}</h2>
+      <br>
+      <li>{{user.age}}/{{user.gender}}</li>
+      <br>
+      <h4>marital status: {{user.status}}</h4>
+  <h1>Children:</h1>
+  <div *ngFor="let child of user.children">
+    <li>{{child.age}}/{{child.gender}}</li>
+  </div>
+
 </div>

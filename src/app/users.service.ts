@@ -21,4 +21,14 @@ export class UsersService {
   getUserById(key: string) {
     return this.angularFire.database.object('users/' + key);
   }
+
+  getProfile(authKey: string){
+    console.log(authKey);
+    return this.angularFire.database.list("users/", {
+      query: {
+        orderByChild: "uid",
+        equalTo: authKey
+      }
+    });
+  }
 }
