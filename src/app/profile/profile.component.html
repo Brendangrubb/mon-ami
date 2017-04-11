@@ -1,17 +1,21 @@
-<div class="well">
-  <h3>{{profileUser.username}}</h3>
-  <p>{{profileUser.age}}/{{profileUser.gender}}/{{profileUser.location}}</p>
-  <ul>
-    <!-- <li *ngFor="let child of user.children">{{child.age}}/{{child.gender}}</li> -->
-  </ul>
+<div *ngFor="let user of profile">
+      <h2>{{user.username}}</h2>
+      <br>
+      <li>{{user.age}}/{{user.gender}}</li>
+      <br>
+      <h4>marital status: {{user.status}}</h4>
+  <h1>Children:</h1>
+  <div *ngFor="let child of user.children">
+    <li>{{child.age}}/{{child.gender}}</li>
+  </div>
 </div>
 
 <h4>Your matches: </h4>
 
-  <div *ngFor="let user of users | interests: profileUser">
-    <h4>username: {{user.username}}</h4>
-    <h4>user id: {{user.$key}}</h4>
+  <div *ngFor="let match of matches | interests: profile">
+    <h4>username: {{match.username}}</h4>
+    <h4>user id: {{match.$key}}</h4>
     <div class="well">
-    <h4>user likes: {{user.likes}}</h4>
+    <h4>user likes: {{match.likes}}</h4>
   </div>
 </div>

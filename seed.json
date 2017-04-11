@@ -1,9 +1,8 @@
 {
   "users": [
     {
+    "uid": "",
     "username": "yoyoWizard2004",
-    "password": "*****",
-    "email": "yoyoWizard2004@gmail.com",
     "age": 32,
     "gender": "f",
     "status": "married",
@@ -20,9 +19,8 @@
     }]
   },
     {
+      "uid": "",
       "username":"XxBest_daDxX",
-      "password": "*********************",
-      "email": "dad@best.com",
       "age": 43,
       "gender": "m",
       "status": "single",
@@ -36,9 +34,8 @@
       }]
     },
     {
+      "uid": "",
       "username":"soccermom82",
-      "password": "*********",
-      "email": "soccermom82_lisa@yahoo.com",
       "age": 35,
       "gender": "f",
       "status": "single",
@@ -57,9 +54,8 @@
         "gender":"f"
       }]
     }, {
+      "uid": "",
       "username":"iWishThisWasTinder",
-      "password": "*****",
-      "email": "swipebot@gmail.com",
       "age": 25,
       "gender": "f",
       "status": "single",
