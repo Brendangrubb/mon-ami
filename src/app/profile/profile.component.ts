@@ -12,6 +12,7 @@ import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  Fireb
   styleUrls: ['./profile.component.css'],
   providers:  [ UsersService ]
 })
+
 export class ProfileComponent implements OnInit {
   userKey: string = " ";
   userId;
@@ -25,6 +26,7 @@ export class ProfileComponent implements OnInit {
         this.userId = userId;
         console.log(this.userId.uid);
       } else {
+
         this.userId = {};
       }
     });
@@ -33,17 +35,5 @@ export class ProfileComponent implements OnInit {
       this.profile = snap;
     });
   }
-
   }
-
-
-
-
-
-
-  //     this.route.params.forEach((urlParameters) => {
-  //       this.userKey = urlParameters['id'];
-  //     });
-  //     this.UsersService.getUserById(this.userKey).subscribe(snap => {
-  //       this.profileUser = snap;
-  //     });
+}

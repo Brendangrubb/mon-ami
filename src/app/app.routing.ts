@@ -6,6 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { LoggedOffComponent } from './logged-off/logged-off.component';
+import { NewUserComponent } from './new-user/new-user.component';
 
 const appRoutes:Routes=[
   {
@@ -31,6 +32,10 @@ const appRoutes:Routes=[
   {
     path: "logged-off",
     component: LoggedOffComponent
+  },
+  {
+    path: "new-user",
+    component: NewUserComponent
   }
 ]
  export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
