@@ -69,5 +69,21 @@
       <option value="comitted">Committed</option>
     </select>
   </div>
+  <h4>Children</h4>
+  <div class="form-group">
+    <label>Gender:</label>
+    <select class="form-control" #newChildGender>
+      <option value="f">F</option>
+      <option value="m">M</option>
+      <option value="o">Other</option>
+    </select>
+    <label>Age:</label>
+    <input type="number" min="1" max="18" #newChildAge>
+    <button class="btn btn-sm btn-success" (click)="addNewChild(newChildGender.value, newChildAge.value)">Add Child</button>
+  </div>
+  <div class="form-group" *ngFor="let interest of interests">
+    <label>{{interest.display}}</label>
+    <input type="checkbox" value="{{interest.value}}" (click)="addInterest(interest.value)">
+  </div>
   <button class="btn btn-lg btn-success" (click)="saveUser(newUsername, newAge, newGender, newStatus)">Submit</button>
 </form>
