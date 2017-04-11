@@ -61,6 +61,8 @@ toggleSignUpForm(){
         }
         this.usersService.saveUser(newAccount);
       })
+      this.router.navigate(['new-user']);
+
     }
     // End of auth
   }

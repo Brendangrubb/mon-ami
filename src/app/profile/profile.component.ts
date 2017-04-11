@@ -12,9 +12,9 @@ import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  Fireb
   styleUrls: ['./profile.component.css'],
   providers:  [ UsersService ]
 })
+
 export class ProfileComponent implements OnInit {
   userKey: string = " ";
-//   profileUser;
   matches;
   filterByInterest: string = "allInterests";
   user;
@@ -28,31 +28,11 @@ export class ProfileComponent implements OnInit {
         this.user = user;
         console.log(this.user.uid);
       } else {
-        this.user= {};
+        this.user = {};
       }
     });
-    // console.log(this.user.uid);
     this.usersService.getProfile(this.user.uid).subscribe( snap => {
       this.profile = snap;
     });
-    // this.usersService.getUsers().subscribe(matches=>{
-    //   this.matches = matches;
-    // });
   }
-  // onChange(optionFromMenu: string) {
-  //   this.filterByInterest = optionFromMenu;
-  // }
-
-  }
-
-
-
-
-
-
-  //     this.route.params.forEach((urlParameters) => {
-  //       this.userKey = urlParameters['id'];
-  //     });
-  //     this.UsersService.getUserById(this.userKey).subscribe(snap => {
-  //       this.profileUser = snap;
-  //     });
+}
