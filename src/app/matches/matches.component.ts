@@ -1,25 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Location } from '@angular/common';
 import { UsersService } from '../users.service';
 import { AuthService } from '../providers/auth.service';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  FirebaseObjectObservable } from 'angularfire2';
-// import { Router } from "@angular/router";
-
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css'],
-  providers:  [ UsersService ]
+  selector: 'app-matches',
+  templateUrl: './matches.component.html',
+  styleUrls: ['./matches.component.css'],
+  providers: [ UsersService ]
 })
-
-export class ProfileComponent implements OnInit {
+export class MatchesComponent implements OnInit {
+  matches;
   userKey: string = " ";
   userId;
   profile;
 
-  constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService) { }
+  constructor(private af: AngularFire, private usersService: UsersService, private authService: AuthService) { }
 
   ngOnInit() {
     this.af.auth.subscribe(userId => {
@@ -27,14 +23,17 @@ export class ProfileComponent implements OnInit {
         this.userId = userId;
         console.log(this.userId.uid);
       } else {
-
         this.userId = {};
       }
     });
-    // console.log(this.user.uid);
+    // this.matches = this.usersService.getUsers();
+    this.usersService.getUsers().subscribe(matches=>{
+      this.matches = matches;
+    });
+
     this.usersService.getProfile(this.userId.uid).subscribe( snap => {
       this.profile = snap;
     });
   }
-}
 
+}
