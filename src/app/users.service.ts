@@ -23,10 +23,6 @@ export class UsersService {
   }
 
   getProfile(authKey: string){
-<<<<<<< HEAD
-=======
-    // console.log(authKey);
->>>>>>> 79ccd4bdd36615e71590c72b7419848660c936aa
     return this.angularFire.database.list("users/", {
       query: {
         orderByChild: "uid",
