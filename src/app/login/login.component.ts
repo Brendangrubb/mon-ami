@@ -3,7 +3,6 @@ import { AuthService } from '../providers/auth.service';
 import {Router} from "@angular/router";
 import { UsersService } from '../users.service';
 import {AngularFire, FirebaseListObservable } from 'angularfire2';
-import { Profile } from './../profile.model';
 
 @Component({
   selector: 'app-login',

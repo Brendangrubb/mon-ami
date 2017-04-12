@@ -4,8 +4,7 @@ import { Location } from '@angular/common';
 import { UsersService } from '../users.service';
 import { AuthService } from '../providers/auth.service';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  FirebaseObjectObservable } from 'angularfire2';
-// import { Router } from "@angular/router";
-import { Profile } from './../profile.model';
+// import { Profile } from './../profile.model';
 
 
 
@@ -20,6 +19,8 @@ export class ProfileComponent implements OnInit {
   userKey: string = " ";
   userId;
   profile;
+
+
 
   constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService) { }
 
@@ -36,6 +37,7 @@ export class ProfileComponent implements OnInit {
     // console.log(this.user.uid);
     this.usersService.getProfile(this.userId.uid).subscribe( snap => {
       this.profile = snap;
+      // console.log(profile);
     });
   }
 }
