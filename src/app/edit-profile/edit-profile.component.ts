@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { UsersService } from '../users.service';
 import { AuthService } from '../providers/auth.service';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  FirebaseObjectObservable } from 'angularfire2';
-// import { Profile } from './../profile.model';
+import { LocalStorageService, LocalStorage } from 'ng2-webstorage';
 
 @Component({
   selector: 'app-edit-profile',
@@ -17,9 +17,11 @@ export class EditProfileComponent implements OnInit {
   matches;
   filterByInterest: string = "allInterests";
   user;
+  // @LocalStorage('profileStorage')
   profile;
 
-  constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService) { }
+
+  constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService, private storage: LocalStorageService) { }
 
   ngOnInit() {
     this.af.auth.subscribe(user => {
@@ -28,12 +30,11 @@ export class EditProfileComponent implements OnInit {
       }
     });
     this.route.params.forEach((urlParametes) => {
-      console.log(this.user.uid);
+      // console.log(this.user.uid);
       this.user.uid = urlParametes['id'];
     });
-    // this.usersService.getProfile(this.user.uid).subscribe( snap => {
-    //   this.profile = snap;
-    // });
+    this.profile = this.storage.retrieve('profileStorage');
+    console.log("storage", this.profile);
   }
 }
 
