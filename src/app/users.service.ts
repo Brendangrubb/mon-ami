@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AngularFire, FirebaseListObservable } from 'angularfire2';
+import {AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
 
 @Injectable()
@@ -28,12 +28,24 @@ export class UsersService {
 
 
   getProfile(authKey: string){
-    console.log(authKey);
     return this.angularFire.database.list("users/", {
       query: {
         orderByChild: "uid",
         equalTo: authKey
       }
     });
+  }
+
+  // addNewFriend(newMatch, profile) {
+  //   console.log(newMatch);
+  //   console.log(newMatch.matchUserId);
+  //   console.log(profile[0].$key);
+  //   var memberEntryInFirebase = this.getUserById(profile[0].$key);
+  //   memberEntryInFirebase.push(matches: newMatch.matchUserId);
+  //   }
+
+  addNewFriend(newMatch, profile) {
+    console.log(newMatch);
+    this.angularFire.database.list('users/' + profile[0].$key + '/matches').push(newMatch);
   }
 }

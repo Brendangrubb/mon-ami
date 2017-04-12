@@ -21,7 +21,6 @@ export class MatchesComponent implements OnInit {
     this.af.auth.subscribe(userId => {
       if(userId) {
         this.userId = userId;
-        console.log(this.userId.uid);
       } else {
         this.userId = {};
       }
@@ -34,6 +33,12 @@ export class MatchesComponent implements OnInit {
     this.usersService.getProfile(this.userId.uid).subscribe( snap => {
       this.profile = snap;
     });
+  }
+
+  addFriend(match, profile) {
+    console.log(match.$key);
+    var newMatch = match.$key;
+    this.usersService.addNewFriend(newMatch, profile);
   }
 
 }
