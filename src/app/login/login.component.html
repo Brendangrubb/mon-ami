@@ -19,7 +19,7 @@
         <label>email:</label>
         <input #newEmail value="">
         <label>password:</label>
-        <input #newPassword value="">
+        <input #newPassword type="password" value="">
         <button class="btn" (click)="signupWithEmail(newEmail.value, newPassword.value)">Submit</button>
         <button class="btn btn-danger" (click)="toggleSignUpForm()">Cancel</button>
       </div>

@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   providers:[UsersService]
 })
 export class HomeComponent implements OnInit {
-  users;//: any[];
+  users;
 
   newUser:boolean = false;
   filterByInterest: string = "allInterests";
