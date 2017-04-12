@@ -1,45 +1,4 @@
-<!-- <div *ngIf="newUser">
-  <form>
-    <div class="form-group">
-      <label>Username:</label>
-      <input #newUsername type="text">
-    </div> -->
-    <!-- <div class="form-group">
-      <label>Password:</label>
-      <input #newPassword type="password">
-    </div> -->
-    <!-- <div class="form-group">
-      <label>Email:</label>
-      <input #newEmail type="text">
-    </div> -->
-    <!-- <div class="form-group">
-      <label>Location: </label>
-      <button [class]="locationButton" (click)="getLocation()">Auto</button>
-      <input type="text"[ngModelOptions]="{standalone: true}" [(ngModel)]="location" [required]="!autoGetLocation" [disabled]="autoGetLocation">
-    </div>
-    <div class="form-group">
-      <label>Gender:</label>
-      <select #newGender>
-        <option value="f">F</option>
-        <option value="m">M</option>
-        <option value="o">Other</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Age:</label>
-      <input #newAge type="number">
-    </div>
-    <div class="form-group">
-      <label>Relationship Status:</label>
-      <select #newStatus>
-        <option value="single">Single</option>
-        <option value="comitted">Committed</option>
-      </select>
-    </div>
-    <button class="btn btn-lg btn-success" (click)="saveUser(newUsername, newAge, newGender, newStatus)">Submit</button>
-  </form>
-</div> -->
-<h1>New user welcome!</h1>
+<h1>Before we create your account, tell us about yourself:</h1>
 <form>
   <div class="form-group">
     <label for="username">Username</label>
@@ -73,17 +32,23 @@
     <label>About me:</label><br>
     <textarea #newAbout placeholder="Write a little bit about yourself here..."></textarea>
   </div>
-  <h4>Children</h4>
-  <div class="form-group">
-    <label>Gender:</label>
-    <select class="form-control" #newChildGender>
-      <option value="f">F</option>
-      <option value="m">M</option>
-      <option value="o">Other</option>
-    </select>
-    <label>Age:</label>
-    <input type="number" min="1" max="18" #newChildAge>
-    <button class="btn btn-sm btn-success" (click)="addNewChild(newChildGender.value, newChildAge.value)">Add Child</button>
+  <div class="well">
+    <div>
+      <!-- <li>{{child.age}}/{{child.gender}}</li> -->
+    </div>
+    <h4>Add information about your children, submit more than once if applicable:</h4>
+    <div class="form-group">
+      <label>Gender:</label>
+      <select class="form-control" #newChildGender>
+        <option value="f">F</option>
+        <option value="m">M</option>
+        <option value="o">Other</option>
+      </select><br>
+      <label>Age:</label>
+      <input type="number" min="1" max="18" #newChildAge>
+      <br><br>
+      <button class="btn btn-sm btn-success" (click)="addNewChild(newChildGender.value, newChildAge.value)">Add Child</button>
+    </div>
   </div>
   <div class="form-group" *ngFor="let interest of interests">
     <label>{{interest.display}}</label>

@@ -33,7 +33,6 @@ export class NewUserComponent implements OnInit {
     this.af.auth.subscribe(user => {
       if(user) {
         this.user = user;
-        console.log(this.user.uid);
       }
     });
 
@@ -41,8 +40,6 @@ export class NewUserComponent implements OnInit {
       navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));
     }
     this.locationButton = "btn btn-md active btn-primary";
-    // this.uid = this.authService.sendUid();
-    // console.log(this.uid);
   }
 
   getLocation(){
@@ -71,25 +68,20 @@ export class NewUserComponent implements OnInit {
       interests: this.interestArray,
       uid: this.user.uid
     };
-    console.log(newAccount);
     this.usersService.saveUser(newAccount);
     this.router.navigate(['profile/:id']);
   }
 
   addNewChild(childGender: string, childAge: string){
-    console.log(childGender);
-    console.log(childAge);
     var newChild = {
       "gender": childGender,
       "age": childAge
     }
     this.childArray.push(newChild);
-    // console.log(this.childArray);
   }
 
   addInterest(inter){
     this.interestArray.push(inter);
-    // console.log(this.interestArray);
   }
 
   public interests = [

@@ -9,8 +9,6 @@ export class AuthService {
   public uid: string;
   public user;
 
-
-
   constructor(public af: AngularFire) {
     this.af.auth.subscribe(user => {
       if(user) {

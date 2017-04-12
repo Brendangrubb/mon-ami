@@ -36,8 +36,4 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  // sendUid(){
-  //   console.log(this.user.uid);
-  //   return this.user.uid;
-  // }
 }
