@@ -47,7 +47,7 @@
           <a class="navbar-brand navbar-right" routerLink="login" (click)="loginSender()">Log In</a>
         </div>
         <div *ngIf="loginStatus === true" class="log-status">
-          <a class="navbar-brand navbar-right" routerLink="logged-off" (click)="logoutSender()">Log Out</a>
+          <a class="navbar-brand navbar-right" onclick="history.go(0)" (click)="logoutSender()">Log Out</a>
         </div>
 
       </div><!-- /.navbar-collapse -->

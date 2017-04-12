@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './providers/auth.service';
 import {Router} from "@angular/router";
 import { UsersService } from './users.service';
@@ -11,24 +11,25 @@ import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  Fireb
   styleUrls: ['./app.component.css'],
   providers: [ AuthService, UsersService ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  public loginStatus = false;
 
-constructor(public authService: AuthService, public usersService: UsersService, public router: Router){
+  constructor(public authService: AuthService, public usersService: UsersService, public router: Router){
 
-}
+  }
 
-public loginStatus = false;
+  ngOnInit() {
+    this.loginStatus = false;
+  }
 
   loginSender() {
       this.loginStatus = true;
   }
 
   logoutSender() {
-    if(this.loginStatus){
-      this.loginStatus = false;
-      this.authService.logout();
-      this.router.navigate(['']);
-    }
+    this.authService.logout();
+    // this.loginStatus = false;
+    this.router.navigate(['logged-off']);
   }
 
 }

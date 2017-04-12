@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { UsersService } from '../users.service';
 import { AuthService } from '../providers/auth.service';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  FirebaseObjectObservable } from 'angularfire2';
+// import { Profile } from './../profile.model';
 
 @Component({
   selector: 'app-edit-profile',

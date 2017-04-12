@@ -5,6 +5,8 @@ import { UsersService } from '../users.service';
 import { AuthService } from '../providers/auth.service';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  FirebaseObjectObservable } from 'angularfire2';
 // import { Router } from "@angular/router";
+import { Profile } from './../profile.model';
+
 
 
 @Component({
@@ -37,4 +39,3 @@ export class ProfileComponent implements OnInit {
     });
   }
 }
-
