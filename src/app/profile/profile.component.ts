@@ -35,4 +35,9 @@ export class ProfileComponent implements OnInit {
       this.profile = snap;
     });
   }
+
+  // sendUid(){
+  //   console.log(this.user.uid);
+  //   return this.user.uid;
+  // }
 }

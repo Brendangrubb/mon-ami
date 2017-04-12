@@ -56,12 +56,12 @@ toggleSignUpForm(){
 
   signupWithEmail(email: string, password: string, makeAccount) {
     this.authService.signupWithEmail(email, password).then( () => {
-        var newAccount = {
-        username: makeAccount.username,
-        }
-        this.usersService.saveUser(newAccount);
-      })
       this.router.navigate(['new-user']);
+        // var newAccount = {
+        // username: makeAccount.username,
+        // }
+        // this.usersService.saveUser(newAccount);
+      })
 
     }
     // End of auth

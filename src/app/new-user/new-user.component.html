@@ -69,6 +69,10 @@
       <option value="comitted">Committed</option>
     </select>
   </div>
+  <div class="form group">
+    <label>About me:</label><br>
+    <textarea #newAbout placeholder="Write a little bit about yourself here..."></textarea>
+  </div>
   <h4>Children</h4>
   <div class="form-group">
     <label>Gender:</label>
@@ -85,5 +89,5 @@
     <label>{{interest.display}}</label>
     <input type="checkbox" value="{{interest.value}}" (click)="addInterest(interest.value)">
   </div>
-  <button class="btn btn-lg btn-success" (click)="saveUser(newUsername, newAge, newGender, newStatus)">Submit</button>
+  <button class="btn btn-lg btn-success" (click)="saveUser(newUsername.value, newAge.value, newGender.value, newAbout.value, newStatus.value)">Submit</button>
 </form>
