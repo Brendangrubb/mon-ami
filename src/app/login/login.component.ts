@@ -4,7 +4,6 @@ import {Router} from "@angular/router";
 import { UsersService } from '../users.service';
 import {AngularFire, FirebaseListObservable } from 'angularfire2';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -56,12 +55,8 @@ toggleSignUpForm(){
 
   signupWithEmail(email: string, password: string, makeAccount) {
     this.authService.signupWithEmail(email, password).then( () => {
-        var newAccount = {
-        username: makeAccount.username,
-        }
-        this.usersService.saveUser(newAccount);
-      })
       this.router.navigate(['new-user']);
+      })
 
     }
     // End of auth

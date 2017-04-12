@@ -22,12 +22,11 @@ export class UsersService {
     return this.angularFire.database.object('users/' + key);
   }
 
-  // saveMatches(horses) {
-  //   this.users.matches.push(horses);
-  // }
-
-
   getProfile(authKey: string){
+<<<<<<< HEAD
+=======
+    // console.log(authKey);
+>>>>>>> 79ccd4bdd36615e71590c72b7419848660c936aa
     return this.angularFire.database.list("users/", {
       query: {
         orderByChild: "uid",

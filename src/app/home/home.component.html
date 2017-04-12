@@ -1,8 +1,7 @@
 <h1>Mon Ami</h1>
 <p>Welcome to Mon Ami. Make an account or sign in to begin connecting you and your children to eager friends and play-mates from your area</p>
 
-<!-- <app-new-user [newUser]="newUser"(newUserSender)="saveNewUser($event)"></app-new-user>
-<button (click)="addNewUser()">Sign up</button> -->
+
 <h1>Local Users</h1>
 <div class="well" *ngFor="let user of users">
   <h3 (click)="goToProfile(user)">{{user.username}}</h3>

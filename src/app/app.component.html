@@ -20,6 +20,9 @@
         <ul class="nav navbar-nav">
           <li class="active"><a routerLink="about">About<span class="sr-only">(current)</span></a></li>
           <li><a routerLink="contact">Contact Us</a></li>
+          <li><a routerLink="profile/:id">Profile</a></li>
+          <li><a routerLink="edit-profile/:id">Edit Profile</a></li>
+
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -44,7 +47,7 @@
           <a class="navbar-brand navbar-right" routerLink="login" (click)="loginSender()">Log In</a>
         </div>
         <div *ngIf="loginStatus === true" class="log-status">
-          <a class="navbar-brand navbar-right" routerLink="logged-off" (click)="logoutSender()">Log Out</a>
+          <a class="navbar-brand navbar-right" onclick="history.go(0)" (click)="logoutSender()">Log Out</a>
         </div>
 
       </div><!-- /.navbar-collapse -->

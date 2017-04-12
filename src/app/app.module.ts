@@ -14,11 +14,10 @@ import { routing } from './app.routing';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { NewUserComponent } from './new-user/new-user.component';
-
 import { InterestsPipe } from './interests.pipe';
-
 import { LoginComponent } from './login/login.component';
 import { LoggedOffComponent } from './logged-off/logged-off.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { MatchesComponent } from './matches/matches.component';
 
 
@@ -40,6 +39,7 @@ export const firebaseConfig = {
     InterestsPipe,
     LoginComponent,
     LoggedOffComponent,
+    EditProfileComponent,
     MatchesComponent
 
   ],
