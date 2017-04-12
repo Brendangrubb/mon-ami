@@ -1,78 +1,103 @@
 {
   "users": [
     {
-    "uid": "",
-    "username": "yoyoWizard2004",
-    "age": 32,
-    "gender": "f",
-    "status": "married",
-    "location": "PDX",
-    "likes": ["music", "gators"],
-    "matches": ["2"],
-    "notMatch": [],
-    "children": [{
-      "age": 9,
-      "gender": "f"
-    }, {
-      "age": 4,
-      "gender": "m"
-    }]
-  },
-    {
-      "uid": "",
-      "username":"XxBest_daDxX",
-      "age": 43,
+      "about": "Super cool guy looking to hang out with scientists or engineers",
+      "age": 35,
+      "children": [
+        {
+          "age": 2,
+          "gender": "m"
+        },
+        {
+          "age": 14,
+          "gender": "f"
+        }
+      ],
       "gender": "m",
+      "interests": ["indoor","community","culinary"],
+      "location": [45.5266975, -122.6880503],
       "status": "single",
-      "location": "PDX",
-      "likes": ["horses", "peanuts"],
-      "matches": ["2"],
-      "notMatch": [],
-      "children": [{
-        "age": 9,
-        "gender":"f"
-      }]
+      "uid": "",
+      "username": "James S.A. Corey"
+    },
+
+    {
+      "about": "Sportzlvr to the extreme! Ducks? Love 'em...the animals and the team. Let's drink some brews with the family crew",
+      "age": 25,
+      "children": [
+        {
+          "age": 3,
+          "gender": "m"
+        },
+        {
+          "age": 8,
+          "gender": "m"
+        }
+      ],
+      "gender": "f",
+      "interests": ["sports","videoGames","literature"],
+      "location": [45.5266975, -122.6880503],
+      "status": "comitted",
+      "uid": "",
+      "username": "Dana Marino"
+    },
+
+    {
+      "about": "I yearn for companionship! The fruit of my loins, as lovely as they may be, has the conversational skills of a dark ages dullard. Message me if you burn with a desire for deep conversation.",
+      "age": 99,
+      "children": [
+        {
+          "age": 2,
+          "gender": "m"
+        }
+      ],
+      "gender": "m",
+      "interests": ["art","literature","parks"],
+      "location": [45.5266975, -122.6880503],
+      "status": "comitted",
+      "uid": "",
+      "username": "I.M. Sassywitz"
     },
     {
-      "uid": "",
-      "username":"soccermom82",
-      "age": 35,
-      "gender": "f",
+      "about": "I am a Sci-fi fanatic with three lovely little girls who HATES science fiction. They're always making fun of me. Please comtact me if you want to talk about space ships!",
+      "age": 30,
+      "children": [
+        {
+          "age": 7,
+          "gender": "f"
+        },
+        {
+          "age": 8,
+          "gender": "f"
+        },
+        {
+          "age": 9,
+          "gender": "f"
+        }
+      ],
+      "gender": "o",
+      "interests": ["literature","homeGames","parks", "community"],
+      "location": [45.5266975, -122.6880503],
       "status": "single",
-      "location": "PDX",
-      "likes": ["music", "horses"],
-      "matches": ["0", "1"],
-      "notMatch": [],
-      "children": [{
-        "age": 9,
-        "gender":"m"
-      },{
-        "age": 9,
-        "gender":"m"
-      },{
-        "age": 3,
-        "gender":"f"
-      }]
-    }, {
       "uid": "",
-      "username":"iWishThisWasTinder",
-      "age": 25,
-      "gender": "f",
+      "username": "Andy C. Clarke"
+    },
+    {
+      "about": "Friendly jr programmer with a handsome robot child",
+      "age": 33,
+      "children": [
+        {
+          "age": 6,
+          "gender": "m"
+        }
+      ],
+      "gender": "m",
+      "interests": ["literature","homeGames","community"],
+      "location": [45.5266975, -122.6880503],
       "status": "single",
-      "location": "PDX",
-      "likes": ["nothing"],
-      "matches": [],
-      "notMatch": [],
-      "children": [{
-        "age": 9,
-        "gender":"m"
-      },{
-        "age": 7,
-        "gender":"f"
-      },{
-        "age": 2,
-        "gender":"m"
-      }]
+      "uid": "",
+      "username": "Danatic"
     }
+
   ]
 }
