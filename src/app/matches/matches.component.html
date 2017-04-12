@@ -2,5 +2,5 @@
 
 <div *ngFor="let match of matches | interests:profile">
   <h4>Username: {{match.username}}</h4>
-  <li>{{match.$key}}</li>
+  <button (click)="addFriend(match, profile)">Add friend</button>
 </div>
