@@ -4,8 +4,7 @@ import { Location } from '@angular/common';
 import { UsersService } from '../users.service';
 import { AuthService } from '../providers/auth.service';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  FirebaseObjectObservable } from 'angularfire2';
-// import { Profile } from './../profile.model';
-
+import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
 
 
 @Component({
@@ -22,7 +21,7 @@ export class ProfileComponent implements OnInit {
 
 
 
-  constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService) { }
+  constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService, private storage: LocalStorageService) { }
 
   ngOnInit() {
     this.af.auth.subscribe(userId => {
@@ -37,7 +36,8 @@ export class ProfileComponent implements OnInit {
     // console.log(this.user.uid);
     this.usersService.getProfile(this.userId.uid).subscribe( snap => {
       this.profile = snap;
-      // console.log(profile);
+      this.storage.store('profileStorage', this.profile);
     });
   }
+
 }

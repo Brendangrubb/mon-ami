@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AuthService } from './providers/auth.service';
-
+import {Ng2Webstorage} from 'ng2-webstorage';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -45,6 +45,7 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    Ng2Webstorage,
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
