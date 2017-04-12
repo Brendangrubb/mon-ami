@@ -19,6 +19,7 @@ import { InterestsPipe } from './interests.pipe';
 
 import { LoginComponent } from './login/login.component';
 import { LoggedOffComponent } from './logged-off/logged-off.component';
+import { MatchesComponent } from './matches/matches.component';
 
 
 export const firebaseConfig = {
@@ -38,7 +39,8 @@ export const firebaseConfig = {
     NewUserComponent,
     InterestsPipe,
     LoginComponent,
-    LoggedOffComponent
+    LoggedOffComponent,
+    MatchesComponent
 
   ],
   imports: [
