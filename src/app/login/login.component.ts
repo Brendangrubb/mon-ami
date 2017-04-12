@@ -4,7 +4,6 @@ import {Router} from "@angular/router";
 import { UsersService } from '../users.service';
 import {AngularFire, FirebaseListObservable } from 'angularfire2';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

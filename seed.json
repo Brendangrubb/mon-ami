@@ -16,6 +16,7 @@
       "gender": "m",
       "interests": ["indoor","community","culinary"],
       "location": [45.5266975, -122.6880503],
+      "matches": [],
       "status": "single",
       "uid": "",
       "username": "James S.A. Corey"
@@ -37,6 +38,7 @@
       "gender": "f",
       "interests": ["sports","videoGames","literature"],
       "location": [45.5266975, -122.6880503],
+      "matches": [],
       "status": "comitted",
       "uid": "",
       "username": "Dana Marino"
@@ -54,6 +56,7 @@
       "gender": "m",
       "interests": ["art","literature","parks"],
       "location": [45.5266975, -122.6880503],
+      "matches": [],
       "status": "comitted",
       "uid": "",
       "username": "I.M. Sassywitz"
@@ -78,6 +81,7 @@
       "gender": "o",
       "interests": ["literature","homeGames","parks", "community"],
       "location": [45.5266975, -122.6880503],
+      "matches": [],
       "status": "single",
       "uid": "",
       "username": "Andy C. Clarke"
@@ -94,6 +98,7 @@
       "gender": "m",
       "interests": ["literature","homeGames","community"],
       "location": [45.5266975, -122.6880503],
+      "matches": [],
       "status": "single",
       "uid": "",
       "username": "Danatic"

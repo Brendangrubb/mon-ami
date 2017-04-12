@@ -7,6 +7,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { LoggedOffComponent } from './logged-off/logged-off.component';
 import { NewUserComponent } from './new-user/new-user.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+
 
 const appRoutes:Routes=[
   {
@@ -36,6 +38,10 @@ const appRoutes:Routes=[
   {
     path: "new-user",
     component: NewUserComponent
+  },
+  {
+    path: "edit-profile/:id",
+    component: EditProfileComponent
   }
 ]
  export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

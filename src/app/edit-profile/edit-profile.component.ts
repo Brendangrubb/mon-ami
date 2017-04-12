@@ -6,38 +6,35 @@ import { AuthService } from '../providers/auth.service';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  FirebaseObjectObservable } from 'angularfire2';
 // import { Profile } from './../profile.model';
 
-
-
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css'],
-  providers:  [ UsersService ]
+  selector: 'app-edit-profile',
+  templateUrl: './edit-profile.component.html',
+  styleUrls: ['./edit-profile.component.css'],
+  providers: [ UsersService, AuthService ]
 })
-
-export class ProfileComponent implements OnInit {
+export class EditProfileComponent implements OnInit {
   userKey: string = " ";
-  userId;
+  matches;
+  filterByInterest: string = "allInterests";
+  user;
   profile;
-
-
 
   constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.af.auth.subscribe(userId => {
-      if(userId) {
-        this.userId = userId;
-        console.log(this.userId.uid);
-      } else {
-
-        this.userId = {};
+    this.af.auth.subscribe(user => {
+      if(user) {
+        this.user = user;
       }
     });
-    // console.log(this.user.uid);
-    this.usersService.getProfile(this.userId.uid).subscribe( snap => {
-      this.profile = snap;
-      // console.log(profile);
+    this.route.params.forEach((urlParametes) => {
+      console.log(this.user.uid);
+      this.user.uid = urlParametes['id'];
     });
+    // this.usersService.getProfile(this.user.uid).subscribe( snap => {
+    //   this.profile = snap;
+    // });
   }
 }
+
+// super@nerd.com
