@@ -1,6 +1,9 @@
 
 
+<h2>Your Potential Matches:</h2>
 <div *ngFor="let match of matches | interests:profile">
   <h4>Username: {{match.username}}</h4>
   <button (click)="addFriend(match, profile)">Add friend</button>
 </div>
+
+<button (click)="getFriendById(profile)">Get Friends</button>
