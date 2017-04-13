@@ -1,0 +1,13 @@
+.userHeader {
+  text-align: center;
+  /*border-bottom: 1px solid green;*/
+}
+
+.bold {
+  font-weight: bold;
+  color: darkgreen;
+}
+
+ul {
+  font-size: 16px;
+}
