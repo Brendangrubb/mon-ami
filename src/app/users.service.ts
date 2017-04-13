@@ -65,4 +65,8 @@ export class UsersService {
     console.log(newMatch);
     this.angularFire.database.list('users/' + profile[0].$key + '/matches').push(newMatch);
   }
+
+  addNewMessage(author, message, friendKey) {
+    this.angularFire.database.list('users/' + friendKey + '/messages').push({author: author, content: message});
+  }
 }
