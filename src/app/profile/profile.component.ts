@@ -18,6 +18,8 @@ export class ProfileComponent implements OnInit {
   profile;
   profileKey: string;
   profileKeyStorage;
+  messages;
+
 
   constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService, private storage: LocalStorageService) { }
 
@@ -33,10 +35,12 @@ export class ProfileComponent implements OnInit {
       this.usersService.getProfile(this.userId.uid).subscribe( snap => {
         this.profile = snap;
         this.profileKey = this.profile[0].$key;
+        this.messages = this.profile[0].messages;
         this.storage.store('profileStorage', this.profile);
         this.storage.store('profileKey', this.profileKey);
       });
       this.profile = this.storage.retrieve('profileStorage');
       this.profileKeyStorage = this.storage.retrieve('profileKey');
+      // console.log("messages: ", this.messageStorage);
   }
 }

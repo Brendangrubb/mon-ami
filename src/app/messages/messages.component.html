@@ -1,0 +1,18 @@
+<h3>Messages:</h3>
+ <div *ngFor="let message of profile[0].messages | values">
+   <p>Message from: {{message.author}}</p>
+   <p>{{message.content}}</p>
+   <button (click)="showMessageForm()">Reply</button>
+   <div [hidden]="messageButton">
+     <div>
+       <label>Author</label>
+       <input #newAuthor required>
+     </div>
+
+     <div>
+       <label>Message</label>
+       <textarea #newMessage required></textarea>
+     </div>
+     <button (click)="submitForm(newAuthor.value, newMessage.value, message.senderId, profileObject)">Send</button>
+   </div>
+ </div>
