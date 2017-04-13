@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
     this.af.auth.subscribe(userId => {
       if(userId) {
         this.userId = userId;
-        console.log(this.userId.uid);
+        // console.log(this.userId.uid);
       } else {
 
         this.userId = {};
