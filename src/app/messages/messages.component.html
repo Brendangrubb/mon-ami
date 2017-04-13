@@ -1,5 +1,5 @@
 <h3>Messages:</h3>
- <div *ngFor="let message of profile[0].messages | values">
+ <div *ngFor="let message of messages | values">
    <p>Sender: {{message.author}}</p>
    <p>Message: {{message.content}}</p>
    <button (click)="showMessageForm()">Reply</button>

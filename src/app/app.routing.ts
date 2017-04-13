@@ -8,6 +8,10 @@ import { LoginComponent } from './login/login.component';
 import { LoggedOffComponent } from './logged-off/logged-off.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MatchesComponent } from './matches/matches.component';
+
+
 
 const appRoutes:Routes=[
   {
@@ -41,6 +45,14 @@ const appRoutes:Routes=[
   {
     path: "edit-profile/:id",
     component: EditProfileComponent
+  },
+  {
+    path: "messages",
+    component:  MessagesComponent
+  },
+  {
+    path: "matches",
+    component:  MatchesComponent
   }
 ]
  export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

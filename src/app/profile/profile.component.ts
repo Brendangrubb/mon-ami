@@ -37,6 +37,7 @@ export class ProfileComponent implements OnInit {
         this.messages = this.profile[0].messages;
         this.storage.store('profileStorage', this.profile);
         this.storage.store('profileKey', this.profileKey);
+        console.log(this.profile);
       });
       this.profile = this.storage.retrieve('profileStorage');
       this.profileKeyStorage = this.storage.retrieve('profileKey');
