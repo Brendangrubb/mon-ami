@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+font-family: 'berthold';
+src: url('./assets/berthold.otf')  format('truetype');
+font-weight: bold;
+}
+
+.allstyle {
+  font-family: berthold;
+}
+
+.btn-green {
+  background-color: #86B437;
+  color: white;
+  /*background-image: image("./../assets/green.png");*/
+}
+
+.btn-red {
+  background-color: #D23C44;
+  color: white;
+}
+
+.btn-blue {
+  background-color: #4040B2;
+  color: white;
+}
+
+.btn-fat {
+  width: 200px;
+}
+
+.btn-big {
+  width: 98px;
+}
+
+.center {
+  text-align: center;
+}
+
+.get-started{
+  width: 200px;
+}
+
+.img-center {
+  display: block;
+  margin: 0;
+  width: 100%;
+}
+
+.splash-body {
+  font-size: 1.5em;
+}
+
+.navbar-display {
+  visibility: hidden;
+}

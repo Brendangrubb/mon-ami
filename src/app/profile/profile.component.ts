@@ -28,7 +28,6 @@ export class ProfileComponent implements OnInit {
       if(userId) {
         this.userId = userId;
       } else {
-
         this.userId = {};
       }
     });
@@ -42,4 +41,5 @@ export class ProfileComponent implements OnInit {
       this.profile = this.storage.retrieve('profileStorage');
       this.profileKeyStorage = this.storage.retrieve('profileKey');
   }
+
 }
