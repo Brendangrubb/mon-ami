@@ -10,4 +10,18 @@
 <button (click)="getFriendById(profile)">See Friends</button>
 <div *ngFor="let friend of friendObjects">
   <h4>{{friend.username}}</h4>
+  <button (click)="showMessageForm()">Message</button>
+
+  <div [hidden]="messageButton">
+    <div>
+      <label>Author</label>
+      <input #newAuthor required>
+    </div>
+
+    <div>
+      <label>Message</label>
+      <textarea #newMessage required></textarea>
+    </div>
+    <button (click)="submitForm(newAuthor.value, newMessage.value, friend, profile)">Send</button>
+  </div>
 </div>
