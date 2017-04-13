@@ -18,22 +18,22 @@ export class UsersService {
     this.users.push(user);
   }
 
-  updateUserService(userToUpdate) {
-    // var userInDatabase = this.getUserById(userToUpdate.$key);
-    // console.log("service- user in DB", userInDatabase);
+  updateUserService(userToUpdate, profileKey) {
+    var userInDatabase = this.getUserById(userToUpdate.$key);
+    console.log("US userInDB", userInDatabase);
     // userInDatabase
-    // var uid =  userToUpdate.uid;
-    // var memberInDatabase = this.getUserByUid(uid);
-    // console.log(memberInDatabase);
-    console.log("user service.ts: ", userToUpdate.uid);
-    // this.angularFire.database.object('users/' +  + ).update({
-    //   about: userToUpdate.about,
-    //   age: userToUpdate.age,
-    //   gender: userToUpdate.gender,
-    //   location: userToUpdate.location,
-    //   status: userToUpdate.status,
-    //   username: userToUpdate.username
-    // });
+    var uid =  userToUpdate.uid;
+    var memberInDatabase = this.getUserByUid(uid);
+    console.log("US memberInDB", memberInDatabase);
+    console.log("US profileKey: ", profileKey);
+    this.angularFire.database.object('users/' + profileKey).update({
+      about: userToUpdate.about,
+      age: userToUpdate.age,
+      gender: userToUpdate.gender,
+      location: userToUpdate.location,
+      status: userToUpdate.status,
+      username: userToUpdate.username
+    });
   }
 
   getUserByUid(uid: string){

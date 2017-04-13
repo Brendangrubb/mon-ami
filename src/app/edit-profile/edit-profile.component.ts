@@ -24,13 +24,15 @@ export class EditProfileComponent implements OnInit {
   autoGetLocation:boolean = true;
   sentLocation;
   locationButton:string= "btn btn-md active btn-primary";
+  profileKey;
 
   constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService, private storage: LocalStorageService) { }
 
   ngOnInit() {
       this.profile = this.storage.retrieve('profileStorage');
-      console.log("storage (on edit)", this.profile);
+      this.profileKey = this.storage.retrieve('profileKey');
 
+      // console.log("storage (on edit)", this.profile);
 
       if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));
@@ -54,9 +56,9 @@ export class EditProfileComponent implements OnInit {
   }
 // END GEOLOCATION METHODS
 
-  updateUser(userToUpdate){
-    console.log("edit-profile userToUpdate: ", userToUpdate.uid);
-    this.usersService.updateUserService(userToUpdate);
+  updateUser(userToUpdate, profileKey){
+    console.log("edit-profile: ", this.profileKey);
+    this.usersService.updateUserService(userToUpdate, this.profileKey);
   }
 
   updateChild(childGender: string, childAge: string){
