@@ -9,7 +9,6 @@ import { LoggedOffComponent } from './logged-off/logged-off.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
-
 const appRoutes:Routes=[
   {
     path:"",

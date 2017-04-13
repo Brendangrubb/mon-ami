@@ -6,14 +6,12 @@ import { AuthService } from '../providers/auth.service';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  FirebaseObjectObservable } from 'angularfire2';
 import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
 
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
   providers:  [ UsersService ]
 })
-
 export class ProfileComponent implements OnInit {
   userKey: string = " ";
   userId;
@@ -21,23 +19,17 @@ export class ProfileComponent implements OnInit {
   profileKey: string;
   profileKeyStorage;
 
-
-
-
   constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService, private storage: LocalStorageService) { }
 
   ngOnInit() {
     this.af.auth.subscribe(userId => {
       if(userId) {
         this.userId = userId;
-        // console.log(this.userId.uid);
       } else {
 
         this.userId = {};
       }
     });
-    // console.log(this.user.uid);
-    // if (this.profile === []) {
       this.usersService.getProfile(this.userId.uid).subscribe( snap => {
         this.profile = snap;
         this.profileKey = this.profile[0].$key;
@@ -46,10 +38,5 @@ export class ProfileComponent implements OnInit {
       });
       this.profile = this.storage.retrieve('profileStorage');
       this.profileKeyStorage = this.storage.retrieve('profileKey');
-      console.log("on profile comp: ",this.profileKeyStorage);
-    // } else {
-    //   // console.log("storage (on profile)", this.profile[0].key);
-    // }
   }
-
 }
