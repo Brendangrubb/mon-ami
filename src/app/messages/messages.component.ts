@@ -13,9 +13,11 @@ export class MessagesComponent implements OnInit {
   profile;
   userId;
   profileStorage;
-  messages;
+  messages = [];
   messageButton = true;
   profileObject;
+  profileKey;
+
 
   constructor(private af: AngularFire, private usersService: UsersService, private authService: AuthService, private storage: LocalStorageService) { }
 
@@ -28,11 +30,13 @@ export class MessagesComponent implements OnInit {
       }
     });
     this.profile = this.storage.retrieve('profileStorage');
+    this.profileKey = this.storage.retrieve('profileKey');
+    this.messages = this.profile[0].messages;
     // this.messages = this.storage.retrieve('messages');
-    console.log(this.profile[0].messages);
-    this.usersService.getProfile(this.userId.uid).subscribe( snap => {
-      this.profileObject = snap;
-    });
+    // console.log(this.profile[0].messages);
+    // this.usersService.getProfile(this.userId.uid).subscribe( snap => {
+    //   this.profileObject = snap;
+    // });
   }
 
   showMessageForm() {
@@ -40,9 +44,9 @@ export class MessagesComponent implements OnInit {
   }
 
   submitForm(author: string, message: string, messageSenderId, profileObject) {
-    console.log(messageSenderId);
-    console.log(this.profileObject[0].$key);
-    var profileKey = profileObject[0].$key;
-    this.usersService.addNewReply(author, message, messageSenderId, profileKey);
+    // console.log(messageSenderId);
+    // console.log(this.profileObject[0].$key);
+    // this.profileKey = profileObject[0].$key;
+    this.usersService.addNewReply(author, message, messageSenderId, this.profileKey);
   }
 }
