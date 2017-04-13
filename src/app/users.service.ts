@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
-
 @Injectable()
 export class UsersService {
   users:FirebaseListObservable<any[]>;
@@ -18,22 +17,21 @@ export class UsersService {
     this.users.push(user);
   }
 
-  updateUserService(userToUpdate) {
-    // var userInDatabase = this.getUserById(userToUpdate.$key);
-    // console.log("service- user in DB", userInDatabase);
-    // userInDatabase
-    // var uid =  userToUpdate.uid;
-    // var memberInDatabase = this.getUserByUid(uid);
-    // console.log(memberInDatabase);
-    console.log(userToUpdate.$key);
-    // this.angularFire.database.object('users/' +  + ).update({
-    //   about: userToUpdate.about,
-    //   age: userToUpdate.age,
-    //   gender: userToUpdate.gender,
-    //   location: userToUpdate.location,
-    //   status: userToUpdate.status,
-    //   username: userToUpdate.username
-    // });
+  updateUserService(userToUpdate, profileKey) {
+    var userInDatabase = this.getUserById(userToUpdate.$key);
+    // console.log("US userInDB", userInDatabase);
+    var uid =  userToUpdate.uid;
+    var memberInDatabase = this.getUserByUid(uid);
+    // console.log("US memberInDB", memberInDatabase);
+    // console.log("US profileKey: ", profileKey);
+    this.angularFire.database.object('users/' + profileKey).update({
+      about: userToUpdate.about,
+      age: userToUpdate.age,
+      gender: userToUpdate.gender,
+      location: userToUpdate.location,
+      status: userToUpdate.status,
+      username: userToUpdate.username
+    });
   }
 
   getUserByUid(uid: string){

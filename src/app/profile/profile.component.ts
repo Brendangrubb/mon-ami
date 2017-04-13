@@ -18,6 +18,9 @@ export class ProfileComponent implements OnInit {
   userKey: string = " ";
   userId;
   profile;
+  profileKey: string;
+  profileKeyStorage;
+
 
 
 
@@ -34,15 +37,19 @@ export class ProfileComponent implements OnInit {
       }
     });
     // console.log(this.user.uid);
-    if (this.profile === []) {
+    // if (this.profile === []) {
       this.usersService.getProfile(this.userId.uid).subscribe( snap => {
         this.profile = snap;
+        this.profileKey = this.profile[0].$key;
         this.storage.store('profileStorage', this.profile);
+        this.storage.store('profileKey', this.profileKey);
       });
-    } else {
       this.profile = this.storage.retrieve('profileStorage');
-      console.log("storage", this.profile);
-    }
+      this.profileKeyStorage = this.storage.retrieve('profileKey');
+      console.log("on profile comp: ",this.profileKeyStorage);
+    // } else {
+    //   // console.log("storage (on profile)", this.profile[0].key);
+    // }
   }
 
 }
