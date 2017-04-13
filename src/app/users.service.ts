@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
-
 @Injectable()
 export class UsersService {
   users:FirebaseListObservable<any[]>;
@@ -20,12 +19,11 @@ export class UsersService {
 
   updateUserService(userToUpdate, profileKey) {
     var userInDatabase = this.getUserById(userToUpdate.$key);
-    console.log("US userInDB", userInDatabase);
-    // userInDatabase
+    // console.log("US userInDB", userInDatabase);
     var uid =  userToUpdate.uid;
     var memberInDatabase = this.getUserByUid(uid);
-    console.log("US memberInDB", memberInDatabase);
-    console.log("US profileKey: ", profileKey);
+    // console.log("US memberInDB", memberInDatabase);
+    // console.log("US profileKey: ", profileKey);
     this.angularFire.database.object('users/' + profileKey).update({
       about: userToUpdate.about,
       age: userToUpdate.age,

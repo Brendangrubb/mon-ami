@@ -3,6 +3,8 @@ import { AuthService } from './providers/auth.service';
 import {Router} from "@angular/router";
 import { UsersService } from './users.service';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  FirebaseObjectObservable } from 'angularfire2';
+import { LocalStorageService, LocalStorage } from 'ng2-webstorage';
+
 
 
 @Component({
@@ -13,13 +15,19 @@ import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  Fireb
 })
 export class AppComponent implements OnInit {
   public loginStatus = false;
+  profile;
+  profileStorage;
+  // profileKey;
 
-  constructor(public authService: AuthService, public usersService: UsersService, public router: Router){
+
+  constructor(public authService: AuthService, public usersService: UsersService, public router: Router, private storage: LocalStorageService){
 
   }
 
   ngOnInit() {
     this.loginStatus = false;
+    // this.profile = this.storage.retrieve('profileStorage');
+    // console.log("on root comp", this.profileStorage);
   }
 
   loginSender() {
@@ -27,8 +35,10 @@ export class AppComponent implements OnInit {
   }
 
   logoutSender() {
-    this.authService.logout();
     // this.loginStatus = false;
+    this.authService.logout();
+    this.storage.clear('profileKey');
+    this.storage.clear('profileStorage');
     this.router.navigate(['logged-off']);
   }
 
