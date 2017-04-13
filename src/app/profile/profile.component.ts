@@ -30,14 +30,11 @@ export class ProfileComponent implements OnInit {
     this.af.auth.subscribe(userId => {
       if(userId) {
         this.userId = userId;
-        // console.log(this.userId.uid);
       } else {
 
         this.userId = {};
       }
     });
-    // console.log(this.user.uid);
-    // if (this.profile === []) {
       this.usersService.getProfile(this.userId.uid).subscribe( snap => {
         this.profile = snap;
         this.profileKey = this.profile[0].$key;
@@ -47,9 +44,6 @@ export class ProfileComponent implements OnInit {
       this.profile = this.storage.retrieve('profileStorage');
       this.profileKeyStorage = this.storage.retrieve('profileKey');
       console.log("on profile comp: ",this.profileKeyStorage);
-    // } else {
-    //   // console.log("storage (on profile)", this.profile[0].key);
-    // }
   }
 
 }

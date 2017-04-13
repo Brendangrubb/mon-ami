@@ -5,6 +5,7 @@ import { UsersService } from '../users.service';
 import { AuthService } from '../providers/auth.service';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  FirebaseObjectObservable } from 'angularfire2';
 import { LocalStorageService, LocalStorage } from 'ng2-webstorage';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-edit-profile',
@@ -26,7 +27,7 @@ export class EditProfileComponent implements OnInit {
   locationButton:string= "btn btn-md active btn-primary";
   profileKey;
 
-  constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService, private storage: LocalStorageService) { }
+  constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService, private storage: LocalStorageService, private router: Router) { }
 
   ngOnInit() {
       this.profile = this.storage.retrieve('profileStorage');
@@ -59,6 +60,7 @@ export class EditProfileComponent implements OnInit {
   updateUser(userToUpdate, profileKey){
     console.log("edit-profile: ", this.profileKey);
     this.usersService.updateUserService(userToUpdate, this.profileKey);
+    this.router.navigate(['profile/:id']);
   }
 
   updateChild(childGender: string, childAge: string){

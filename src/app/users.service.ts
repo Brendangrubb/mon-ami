@@ -19,11 +19,8 @@ export class UsersService {
 
   updateUserService(userToUpdate, profileKey) {
     var userInDatabase = this.getUserById(userToUpdate.$key);
-    // console.log("US userInDB", userInDatabase);
     var uid =  userToUpdate.uid;
     var memberInDatabase = this.getUserByUid(uid);
-    // console.log("US memberInDB", memberInDatabase);
-    // console.log("US profileKey: ", profileKey);
     this.angularFire.database.object('users/' + profileKey).update({
       about: userToUpdate.about,
       age: userToUpdate.age,
@@ -50,14 +47,6 @@ export class UsersService {
       }
     });
   }
-
-  // addNewFriend(newMatch, profile) {
-  //   console.log(newMatch);
-  //   console.log(newMatch.matchUserId);
-  //   console.log(profile[0].$key);
-  //   var memberEntryInFirebase = this.getUserById(profile[0].$key);
-  //   memberEntryInFirebase.push(matches: newMatch.matchUserId);
-  //   }
 
   addNewFriend(newMatch, profile) {
     console.log(newMatch);
