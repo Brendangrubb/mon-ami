@@ -8,6 +8,14 @@
   <div *ngFor="let child of user.children">
     <li>{{child.age}}/{{child.gender}}</li>
   </div>
+  <div *ngFor="let message of user.messages">
+    <h3>Messages:</h3>
+    <h4>Author: {{message.author}}</h4>
+    <p>
+      Message: {{message.message}}
+    </p>
+    <button>Reply</button>
+  </div>
 </div>
 
 <app-matches></app-matches>
