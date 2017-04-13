@@ -1,3 +1,18 @@
 .login {
-padding: 40px;
-}
+  position: relative;
+  top: 10%;
+  left: 37%;
+  }
+
+  .sign-up {
+    width: 200px;
+  }
+
+  .background {
+    background-image: url("./../assets/circle-icon.svg");
+    height: 2025px;
+    background-repeat: no-repeat;
+    display: block;
+    margin: 0;
+    margin-top: 10%;
+  }

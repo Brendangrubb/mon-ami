@@ -1,32 +1,38 @@
-<div class="well login">
-  <div *ngIf=" newUser === false" class="auth-form">
-    <h5>Login with an existing account:</h5>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input #email type="email" required>
+<div class="background">
+  <div class="login sign-up">
+    <div *ngIf=" newUser === false" class="auth-form">
+      <h2>Log In</h2>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input #email class="form-control" type="email" placeholder="you@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input #password class="form-control" type="password" placeholder="password" required>
+      </div>
+        <button class="btn btn-green btn-fat" (click)="loginWithEmail(email.value, password.value)">Submit</button>
     </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input #password type="password" required>
-    </div>
-    <button class="btn" (click)="loginWithEmail(email.value, password.value)">Submit</button>
-  </div>
-<!-- Sign up form below -->
-  <div *ngIf="newUser === true">
-    <div class="container">
-      <div>
-        <h1>Sign up</h1>
-        <label>email:</label>
-        <input #newEmail value="">
-        <label>password:</label>
-        <input #newPassword type="password" value="">
-        <button class="btn" (click)="signupWithEmail(newEmail.value, newPassword.value)">Submit</button>
-        <button class="btn btn-danger" (click)="toggleSignUpForm()">Cancel</button>
+    <!-- Sign up form below -->
+    <div *ngIf="newUser === true">
+      <div class="sign-up">
+        <div>
+          <h1>Sign up</h1>
+          <br>
+          <label>email:</label>
+          <input type="email" class="form-control" #newEmail  placeholder="you@email.com" required>
+          <label>password:</label>
+          <input  type="password"  class="form-control" #newPassword placeholder="hint: don't use password" required>
+          <br>
+          <div class="center">
+            <button class="btn btn-green btn-big" (click)="signupWithEmail(newEmail.value, newPassword.value)">Submit</button>
+            <button class="btn btn-red btn-big" (click)="toggleSignUpForm()">Cancel</button>
+          </div>
+        </div>
       </div>
     </div>
+    <br><br>
+    <h2 *ngIf="newUser === false">&nbsp;New Account</h2>
+    <br>
+      <button *ngIf="newUser === false" class="btn btn-blue  btn-fat" (click)="addNewUser()">Sign up</button>
   </div>
-  <hr>
-  <h5 *ngIf="newUser === false"> If you're new to Mon-Ami click the sign up button!</h5>
-  <br>
-  <button *ngIf="newUser === false" class="btn" (click)="addNewUser()">Sign up</button>
 </div>
