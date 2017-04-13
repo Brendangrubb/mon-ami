@@ -75,6 +75,6 @@ export class MatchesComponent implements OnInit {
   submitForm(author: string, message: string, friend, profile) {
     var friendKey = friend.$key;
     var profileKey = profile[0].$key;
-    this.usersService.addNewMessage(author, message, friendKey);
+    this.usersService.addNewMessage(author, message, friendKey, profileKey);
   }
 }
