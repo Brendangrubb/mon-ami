@@ -10,13 +10,13 @@ export class AuthService {
   public user;
 
   constructor(public af: AngularFire) {
-    this.af.auth.subscribe(user => {
-      if(user) {
-        this.user = user;
-      } else {
-        this.user= {};
-      }
-    });
+    // this.af.auth.subscribe(user => {
+    //   if(user) {
+    //     this.user = user;
+    //   } else {
+    //     this.user= {};
+    //   }
+    // });
   }
 
   logout(){
