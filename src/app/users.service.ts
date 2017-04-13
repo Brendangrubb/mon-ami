@@ -7,7 +7,7 @@ export class UsersService {
   users:FirebaseListObservable<any[]>;
 
   constructor(private angularFire: AngularFire) {
-    this.users=angularFire.database.list('users');
+    this.users = angularFire.database.list('users');
   }
 
   getUsers(){
@@ -16,6 +16,28 @@ export class UsersService {
 
   saveUser(user){
     this.users.push(user);
+  }
+
+  updateUserService(userToUpdate) {
+    // var userInDatabase = this.getUserById(userToUpdate.$key);
+    // console.log("service- user in DB", userInDatabase);
+    // userInDatabase
+    // var uid =  userToUpdate.uid;
+    // var memberInDatabase = this.getUserByUid(uid);
+    // console.log(memberInDatabase);
+    console.log(userToUpdate.$key);
+    // this.angularFire.database.object('users/' +  + ).update({
+    //   about: userToUpdate.about,
+    //   age: userToUpdate.age,
+    //   gender: userToUpdate.gender,
+    //   location: userToUpdate.location,
+    //   status: userToUpdate.status,
+    //   username: userToUpdate.username
+    // });
+  }
+
+  getUserByUid(uid: string){
+    return this.angularFire.database.object('users/' + uid);
   }
 
   getUserById(key: string) {

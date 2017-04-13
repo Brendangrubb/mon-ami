@@ -34,10 +34,15 @@ export class ProfileComponent implements OnInit {
       }
     });
     // console.log(this.user.uid);
-    this.usersService.getProfile(this.userId.uid).subscribe( snap => {
-      this.profile = snap;
-      this.storage.store('profileStorage', this.profile);
-    });
+    if (this.profile === []) {
+      this.usersService.getProfile(this.userId.uid).subscribe( snap => {
+        this.profile = snap;
+        this.storage.store('profileStorage', this.profile);
+      });
+    } else {
+      this.profile = this.storage.retrieve('profileStorage');
+      console.log("storage", this.profile);
+    }
   }
 
 }
