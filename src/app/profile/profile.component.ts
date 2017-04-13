@@ -6,23 +6,18 @@ import { AuthService } from '../providers/auth.service';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  FirebaseObjectObservable } from 'angularfire2';
 import { LocalStorageService, SessionStorageService } from 'ng2-webstorage';
 
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
   providers:  [ UsersService ]
 })
-
 export class ProfileComponent implements OnInit {
   userKey: string = " ";
   userId;
   profile;
   profileKey: string;
   profileKeyStorage;
-
-
-
 
   constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService, private storage: LocalStorageService) { }
 
@@ -43,7 +38,5 @@ export class ProfileComponent implements OnInit {
       });
       this.profile = this.storage.retrieve('profileStorage');
       this.profileKeyStorage = this.storage.retrieve('profileKey');
-      console.log("on profile comp: ",this.profileKeyStorage);
   }
-
 }

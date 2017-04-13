@@ -20,7 +20,6 @@ import { LoggedOffComponent } from './logged-off/logged-off.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { MatchesComponent } from './matches/matches.component';
 
-
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
   authDomain: masterFirebaseConfig.authDomain,
@@ -41,7 +40,6 @@ export const firebaseConfig = {
     LoggedOffComponent,
     EditProfileComponent,
     MatchesComponent
-
   ],
   imports: [
     BrowserModule,

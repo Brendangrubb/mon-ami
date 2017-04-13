@@ -31,6 +31,8 @@
         <label>About me:</label><br>
         <textarea class="form-control" rows="10" [(ngModel)]="user.about"></textarea>
       </div><br>
+
+<!-- LEAVE IN! PART OF EDIT FORM THAT WILL HANDLE ADD CHILDREN AND UPDATE INTERESTS -->
       <!-- <div class="well">
         </div>
         <h4>Add information about your children, submit more than once if applicable:</h4>
@@ -51,5 +53,6 @@
         <label>{{interest.display}}</label>
         <input type="checkbox" value="{{interest.value}}" (click)="updateInterests(interest.value)">
       </div> -->
+      
       <button class="btn btn-lg btn-success" (click)="updateUser(user)">Submit</button>
   </div>

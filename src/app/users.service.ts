@@ -49,7 +49,6 @@ export class UsersService {
   }
 
   addNewFriend(newMatch, profile) {
-    console.log(newMatch);
     this.angularFire.database.list('users/' + profile[0].$key + '/matches').push(newMatch);
   }
 }
