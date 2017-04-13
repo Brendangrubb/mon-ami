@@ -1,8 +1,4 @@
-<!-- <div class="navbar-display" [ngClass]="{'navbar-display': visible}" >
-  not working
-</div> -->
-
-<div *ngFor="let user of profile">
+<div class="container" *ngFor="let user of profile">
       <h2>{{user.username}}</h2>
       <br>
       <li>{{user.age}}/{{user.gender}}</li>

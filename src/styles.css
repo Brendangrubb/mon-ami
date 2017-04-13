@@ -54,3 +54,7 @@ font-weight: bold;
 .navbar-display {
   visibility: hidden;
 }
+
+.container {
+  margin-top: 75px;
+}
