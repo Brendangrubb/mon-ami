@@ -17,25 +17,69 @@ export class EditProfileComponent implements OnInit {
   matches;
   filterByInterest: string = "allInterests";
   user;
-  // @LocalStorage('profileStorage')
   profile;
-
+  childArray = [];
+  interestArray = [];
+  // NECCESSARY FOR GEOLOCATION
+  autoGetLocation:boolean = true;
+  sentLocation;
+  locationButton:string= "btn btn-md active btn-primary";
 
   constructor(private af: AngularFire, private route: ActivatedRoute, private location: Location, private usersService: UsersService, private authService: AuthService, private storage: LocalStorageService) { }
 
   ngOnInit() {
-    this.af.auth.subscribe(user => {
-      if(user) {
-        this.user = user;
-      }
-    });
-    this.route.params.forEach((urlParametes) => {
-      // console.log(this.user.uid);
-      this.user.uid = urlParametes['id'];
-    });
-    this.profile = this.storage.retrieve('profileStorage');
-    console.log("storage", this.profile);
-  }
-}
+      this.profile = this.storage.retrieve('profileStorage');
+      console.log("storage", this.profile);
 
-// super@nerd.com
+      if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));
+      }
+      this.locationButton = "btn btn-md active btn-primary";
+  }
+
+// GEOLOCATION METHODS
+  getLocation(){
+    if(this.autoGetLocation){
+      this.locationButton = "btn btn-md btn-primary"
+      this.autoGetLocation = false;
+    } else {
+      this.locationButton = "btn btn-md active btn-primary";
+      this.autoGetLocation = true;
+    }
+  }
+
+  setPosition(position){
+    this.sentLocation = [position.coords.latitude, position.coords.longitude]
+  }
+// END GEOLOCATION METHODS
+
+  updateUser(userToUpdate){
+    console.log("edit", this.profile);
+    this.usersService.updateUserService(userToUpdate);
+  }
+
+  updateChild(childGender: string, childAge: string){
+    var newChild = {
+      "gender": childGender,
+      "age": childAge
+    }
+    this.childArray.push(newChild);
+  }
+
+  updateInterests(inter){
+    this.interestArray.push(inter);
+  }
+
+  public interests = [
+    { value: 'sports', display: 'Sports'},
+    { value: 'art', display: 'Arts/Crafts'},
+    { value: 'videoGames', display: 'Video Games/Entertainment'},
+    { value: 'culinary', display: 'Culinary/Baking'},
+    { value: 'literature', display: 'Literature/Book Clubs'},
+    { value: 'homeGames', display: 'Board Games/Hobbies'},
+    { value: 'outdoor', display: 'Outdoors/Hiking'},
+    { value: 'parks', display: 'Parks/Kids Activities'},
+    { value: 'community', display: 'Community Events'},
+    { value: 'indoor', display: 'Indoor Activities (swimming, bowling, etc)'},
+  ];
+}
