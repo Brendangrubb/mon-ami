@@ -31,7 +31,9 @@ export class MessagesComponent implements OnInit {
     });
     this.profile = this.storage.retrieve('profileStorage');
     this.profileKey = this.storage.retrieve('profileKey');
+
     this.messages = this.profile[0].messages;
+
     // this.messages = this.storage.retrieve('messages');
     // console.log(this.profile[0].messages);
     // this.usersService.getProfile(this.userId.uid).subscribe( snap => {
