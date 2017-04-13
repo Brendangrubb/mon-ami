@@ -28,7 +28,6 @@ export class MatchesComponent implements OnInit {
         this.userId = {};
       }
     });
-    // this.matches = this.usersService.getUsers();
     this.usersService.getUsers().subscribe(matches=>{
       this.matches = matches;
     });
@@ -39,22 +38,10 @@ export class MatchesComponent implements OnInit {
   }
 
   addFriend(match, profile) {
-    // console.log(profile[0].matches);
-    // console.log(match.$key);
     var newMatch = match.$key;
     this.usersService.addNewFriend(newMatch, profile);
   }
 
-
-  // getFriendById(profile) {
-  //
-  //   var friendId = profile[0].matches;
-  //   console.log(friendId);
-  //   for (var i=0; i < friendId.length; i++) {
-  //     this.matchedFriendArray.push(friendId[i]);
-  //   }
-  //   console.log(this.matchedFriendArray);
-  // }
   getFriendById(profile) {
     for (let key of Object.keys(profile[0].matches)) {
       let friendId = profile[0].matches[key];

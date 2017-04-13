@@ -1,7 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { UsersService } from './users.service';
 
-
 @Pipe({
   name: 'interests',
   pure: true

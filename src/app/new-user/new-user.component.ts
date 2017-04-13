@@ -4,15 +4,12 @@ import {Router} from "@angular/router";
 import { AuthService } from '../providers/auth.service';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  FirebaseObjectObservable } from 'angularfire2';
 
-
-
 @Component({
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',
   styleUrls: ['./new-user.component.css'],
   providers: [UsersService, AuthService]
 })
-
 export class NewUserComponent implements OnInit {
   autoGetLocation:boolean = true;
   location;
@@ -35,7 +32,6 @@ export class NewUserComponent implements OnInit {
         this.user = user;
       }
     });
-
     if(navigator.geolocation){
       navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));
     }
