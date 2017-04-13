@@ -41,7 +41,7 @@ export class ProfileComponent implements OnInit {
       });
     } else {
       this.profile = this.storage.retrieve('profileStorage');
-      console.log("storage", this.profile);
+      console.log("storage (on profile)", this.profile[0].key);
     }
   }
 

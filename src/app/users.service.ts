@@ -25,7 +25,7 @@ export class UsersService {
     // var uid =  userToUpdate.uid;
     // var memberInDatabase = this.getUserByUid(uid);
     // console.log(memberInDatabase);
-    console.log(userToUpdate.$key);
+    console.log("user service.ts: ", userToUpdate.uid);
     // this.angularFire.database.object('users/' +  + ).update({
     //   about: userToUpdate.about,
     //   age: userToUpdate.age,

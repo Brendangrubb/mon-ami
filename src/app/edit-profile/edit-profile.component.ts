@@ -29,7 +29,8 @@ export class EditProfileComponent implements OnInit {
 
   ngOnInit() {
       this.profile = this.storage.retrieve('profileStorage');
-      console.log("storage", this.profile);
+      console.log("storage (on edit)", this.profile);
+
 
       if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));
@@ -54,7 +55,7 @@ export class EditProfileComponent implements OnInit {
 // END GEOLOCATION METHODS
 
   updateUser(userToUpdate){
-    console.log("edit", this.profile);
+    console.log("edit-profile userToUpdate: ", userToUpdate.uid);
     this.usersService.updateUserService(userToUpdate);
   }
 
