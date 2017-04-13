@@ -1,27 +1,30 @@
 
-
-<h2>Your Potential Matches:</h2>
-<div *ngFor="let match of matches | interests:profile">
-  <h4>Username: {{match.username}}</h4>
-  <button (click)="addFriend(match, profile)">Add friend</button>
+<div class="well">
+  <h2>Your Potential Matches:</h2>
+  <div *ngFor="let match of matches | interests:profile">
+    <h4>Username: {{match.username}}</h4>
+    <button class="btn btn-success" (click)="addFriend(match, profile)">Add friend</button>
+  </div>
 </div>
 
-<h2>Your Friends:</h2>
-<button (click)="getFriendById(profile)">See Friends</button>
-<div *ngFor="let friend of friendObjects">
-  <h4>{{friend.username}}</h4>
-  <button (click)="showMessageForm()">Message</button>
+<div class="well">
+  <h2>Your Friends:</h2>
+  <button class="btn btn-success" (click)="getFriendById(profile)">See Friends</button>
+  <div *ngFor="let friend of friendObjects">
+    <h4>{{friend.username}}</h4>
+    <button class="btn btn-success" (click)="showMessageForm()">Message</button>
 
-  <div [hidden]="messageButton">
-    <div>
-      <label>Author</label>
-      <input #newAuthor required>
-    </div>
+    <div [hidden]="messageButton">
+      <div>
+        <label>Author</label>
+        <input class="form-control" #newAuthor required>
+      </div>
 
-    <div>
-      <label>Message</label>
-      <textarea #newMessage required></textarea>
+      <div>
+        <label>Message</label>
+        <textarea class="form-control" #newMessage required></textarea>
+      </div>
+      <button class="btn btn-success" (click)="submitForm(newAuthor.value, newMessage.value, friend, profile)">Send</button>
     </div>
-    <button (click)="submitForm(newAuthor.value, newMessage.value, friend, profile)">Send</button>
   </div>
 </div>
