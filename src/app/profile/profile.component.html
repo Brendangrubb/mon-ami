@@ -1,4 +1,5 @@
-<div class="container panel" *ngFor="let user of profile">
+
+<div class="container panel top-margin" *ngFor="let user of profile">
   <div class="userHeader">
     <h1>{{user.username}}'s Profile</h1>
     <h4>{{user.age}}/{{user.gender}}</h4>
@@ -6,6 +7,7 @@
   <hr>
   <h3><span class="bold">Marital status: </span> {{user.status}}</h3>
   <h3><span class="bold">Children: </span></h3>
+
   <div *ngFor="let child of user.children">
     <h4>Child</h4>
     <ul>
@@ -14,7 +16,7 @@
     </ul>
   </div>
 </div>
-<app-navbar></app-navbar>
+
 <app-matches></app-matches>
 <hr>
 <app-messages></app-messages>

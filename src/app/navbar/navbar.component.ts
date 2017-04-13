@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import { UsersService } from '../users.service';
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable,  FirebaseObjectObservable } from 'angularfire2';
 import { LocalStorageService, LocalStorage } from 'ng2-webstorage';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -25,6 +26,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logoutSender() {
+    this.loginStatus = false;
     this.authService.logout();
     this.storage.clear('profileKey');
     this.storage.clear('profileStorage');
