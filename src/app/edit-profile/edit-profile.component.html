@@ -1,4 +1,4 @@
-  <div *ngFor="let user of profile">
+  <div class="container" *ngFor="let user of profile">
       <div class="form-group">
         <label for="username">Username</label>
         <input [(ngModel)]="user.username" class="form-control">
@@ -53,6 +53,6 @@
         <label>{{interest.display}}</label>
         <input type="checkbox" value="{{interest.value}}" (click)="updateInterests(interest.value)">
       </div> -->
-      
+
       <button class="btn btn-lg btn-success" (click)="updateUser(user)">Submit</button>
   </div>
