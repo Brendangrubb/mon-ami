@@ -14,7 +14,8 @@ export class MatchesComponent implements OnInit {
   userKey: string = " ";
   userId;
   profile;
-  matchedFriendArray;
+  matchedFriendArray= [];
+  friendObjects = [];
 
   constructor(private af: AngularFire, private usersService: UsersService, private authService: AuthService) { }
 
@@ -56,8 +57,16 @@ export class MatchesComponent implements OnInit {
   getFriendById(profile) {
     for (let key of Object.keys(profile[0].matches)) {
       let friendId = profile[0].matches[key];
+      this.matchedFriendArray.push(friendId);
       console.log(friendId);
     }
+    console.log(this.matchedFriendArray);
+    for (var i = 0; i < this.matchedFriendArray.length; i++) {
+      this.usersService.getUserById(this.matchedFriendArray[i]).subscribe(friend => {
+        this.friendObjects.push(friend);
+      });
+    }
+    console.log(this.friendObjects);
+    return this.friendObjects;
   }
-
 }

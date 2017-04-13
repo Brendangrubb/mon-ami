@@ -6,4 +6,8 @@
   <button (click)="addFriend(match, profile)">Add friend</button>
 </div>
 
-<button (click)="getFriendById(profile)">Get Friends</button>
+<h2>Your Friends:</h2>
+<button (click)="getFriendById(profile)">See Friends</button>
+<div *ngFor="let friend of friendObjects">
+  <h4>{{friend.username}}</h4>
+</div>
