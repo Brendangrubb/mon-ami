@@ -1,31 +1,70 @@
 # MonAmi
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+A social media app built to connect like-minded parents based on interests. This app utilizes the Angular2 framework, user authentication, and realtime data storage with firebase.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Prerequisites
 
-## Code scaffolding
+You will need the following things properly installed on your computer.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+* [Git](https://git-scm.com/)
+* [Node.js](https://nodejs.org/) (with NPM)
+* [Bower](https://bower.io/)
+* [Angular2](https://github.com/angular/angular)
+* [Angular-CLI](https://github.com/angular/angular-cli)
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+**Step 1**: Clone this repository to your local computer
 
-## Running unit tests
+```console
+git clone https://github.com/Xesme/mon-ami
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**Step 2**: Install all development and production dependencies from the project root directory
 
-## Running end-to-end tests
+```console
+npm install
+```
+```console
+bower install
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+**Step 3**: Create a new file named `api-keys.ts` in the `src/app` directory to include your firebase information in the following format:
 
-## Deploying to GitHub Pages
+```js
+  export var masterFirebaseConfig = {
+    apiKey: "xxxx",
+    authDomain: "xxxx.firebaseapp.com",
+    databaseURL: "https://xxxx.firebaseio.com",
+    storageBucket: "xxxx.appspot.com",
+    messagingSenderId: "xxxx"
+  };
+```
 
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
+**Step 4**: Use Angular-CLI to run a local server instance
+
+```console
+ng serve
+```
+
+**Step 5**: Visit the app at [http://localhost:4200](http://localhost:4200).
+
+## Planning
+
+* Users can create an account with email and password authentication
+* Users can create a profile with personal details including name, age, age and gender of all children, marital status, gender of user, and interests
+* Users can sign in to view their profile
+* All data is persisted in firebase
+* Users can edit their profile details
+* Users can view potential matches based on interests
+* Users can add and view all friends
+* Users can send messages to friends
+* Users can view messages and send replies
 
 ## Further help
 
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## License
+
+Copyright 2017 Xia Xia Amendolara, Brendan Grubb, Dan Luby, and Brynna Klamkin-McCarter - MIT License
